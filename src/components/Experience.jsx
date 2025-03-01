@@ -1,9 +1,7 @@
-// src/components/Experience.js
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-// src/components/Experience.js
 const ExperienceContainer = styled.section`
   padding: 4rem 2rem;
   background-color: #121212;
@@ -19,6 +17,10 @@ const ExperienceContainer = styled.section`
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 2px;
+
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
   }
 `;
 
@@ -35,43 +37,60 @@ const Timeline = styled(motion.div)`
     background-color: #ffffff;
     top: 0;
     bottom: 0;
-    left: 50%;
+    left: 20px; // Move the timeline line to the left for mobile view
     margin-left: -3px;
+
+    @media (min-width: 768px) {
+      left: 50%; // Center the timeline line on larger screens
+    }
   }
 `;
 
-const TimelineItem = styled.div`
-  padding: 10px 40px;
+const TimelineItem = styled(motion.div)`
+  padding: 10px 40px 10px 70px; // Add left padding for mobile view
   position: relative;
   background-color: inherit;
-  width: 50%;
+  width: 100%; // Full width for mobile view
+  text-align: left;
+
+  @media (min-width: 768px) {
+    width: 50%; // Half width for larger screens
+    padding: 10px 40px;
+
+    &:nth-child(odd) {
+      left: 0;
+      text-align: right;
+
+      &::after {
+        left: -12px;
+      }
+    }
+
+    &:nth-child(even) {
+      left: 50%;
+      text-align: left;
+
+      &::after {
+        left: -12px;
+      }
+    }
+  }
 
   &::after {
     content: '';
     position: absolute;
     width: 25px;
     height: 25px;
-    right: -12px;
     background-color: #ffffff;
     border: 4px solid #121212;
     top: 15px;
     border-radius: 50%;
     z-index: 1;
-  }
+    left: 8px; // Adjust the circle position for mobile view
 
-  &:nth-child(odd) {
-    left: 0;
-
-    &::after {
-      left: -12px;
-    }
-  }
-
-  &:nth-child(even) {
-    left: 50%;
-
-    &::after {
-      left: -12px;
+    @media (min-width: 768px) {
+      left: auto;
+      right: -12px;
     }
   }
 `;
@@ -103,7 +122,6 @@ const ExperienceContent = styled.div`
   ul {
     list-style-type: disc;
     padding-left: 20px;
-    text-align: left;
   }
 
   li {
@@ -156,7 +174,13 @@ const Experience = () => {
         transition={{ duration: 1 }}
       >
         {experiences.map((exp, index) => (
-          <TimelineItem key={index}>
+          <TimelineItem
+            key={index}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+            viewport={{ once: true, amount: 0.5 }} // Trigger animation when 50% of the item is visible
+          >
             <ExperienceContent>
               <h3>{exp.company}</h3>
               <h4>{exp.role}</h4>

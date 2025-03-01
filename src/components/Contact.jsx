@@ -71,13 +71,13 @@ const Contact = () => {
         <button type="submit">Send Message</button>
       </ContactForm>
       <SocialLinks>
-        <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://github.com/rjkalash" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-github"></i>
         </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+        <a href="https://linkedin.com/in/rajkalash" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-linkedin"></i>
         </a>
-        <a href="mailto:your.rajkalashtiwari888@gmail.com">
+        <a href="mailto:rajkalashtiwari888@gmail.com">
           <i className="fas fa-envelope"></i>
         </a>
       </SocialLinks>
