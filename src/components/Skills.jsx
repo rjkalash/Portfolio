@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { FaJava } from 'react-icons/fa';
 import {
   SiC,
   SiCplusplus,
@@ -133,7 +134,7 @@ const Skills = () => {
   const programmingLanguages = [
     { name: 'C', icon: <SiC /> },
     { name: 'C++', icon: <SiCplusplus /> },
-    { name: 'Java', icon: <SiJavascript /> },
+    { name: 'Java', icon: <FaJava /> },
     { name: 'JavaScript', icon: <SiJavascript /> },
     { name: 'Python', icon: <SiPython /> },
     { name: 'PHP', icon: <SiPhp /> },
