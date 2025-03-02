@@ -70,7 +70,7 @@ const EducationItem = styled.div`
   .grade {
     font-size: 0.9rem;
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 300;
     margin-bottom: 0.5rem;
   }
 

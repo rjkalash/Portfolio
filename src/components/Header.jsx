@@ -21,7 +21,7 @@ const HeaderContainer = styled(motion.header)`
 
 const Logo = styled.div`
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 400;
   background: linear-gradient(45deg, #00ffcc, #0077ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

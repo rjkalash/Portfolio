@@ -61,7 +61,7 @@ const AboutText = styled.div`
 
   .highlight {
     color: #ffffff;
-    font-weight: bold;
+    font-weight: 300;
   }
 `;
 
