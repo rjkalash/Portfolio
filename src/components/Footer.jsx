@@ -12,7 +12,7 @@ const FooterContainer = styled.footer`
 const Footer = () => {
   return (
     <FooterContainer>
-      <p>&copy; {new Date().getFullYear()} Raj Kalash Tiwari. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} Vamshidhari Das. All rights reserved.</p>
     </FooterContainer>
   );
 };

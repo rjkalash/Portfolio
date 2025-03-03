@@ -89,7 +89,7 @@ const Header = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Logo>Raj Kalash Tiwari</Logo>
+      <Logo>Vamshidhari Das</Logo>
       <MenuIcon onClick={toggleMenu}>
         {isOpen ? <FaTimes /> : <FaBars />}
       </MenuIcon>

@@ -36,8 +36,8 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h1>Raj Kalash Tiwari</h1>
-        <p>Building Scalable Web Solutions</p>
+        <h1>Vamshidhari Das</h1>
+        <p>Jiver Swarup Hoye Krishna Nitya Das</p>
       </HeroContent>
     </HeroContainer>
   );
