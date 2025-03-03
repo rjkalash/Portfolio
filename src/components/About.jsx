@@ -1,7 +1,7 @@
 // src/components/About.js
-import React from 'react';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import React from "react";
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 const AboutContainer = styled.section`
   padding: 4rem 2rem;
@@ -40,7 +40,6 @@ const AboutText = styled.div`
   text-justify: inter-word; // Improve spacing between words
 
   h2 {
-   
     font-size: 2.5rem;
     margin-bottom: 2rem;
     background: linear-gradient(45deg, #00ffcc, #0077ff);
@@ -73,10 +72,13 @@ const About = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <ProfileImage src="https://iisb.co.in/wp-content/uploads/2022/08/vamshidharidas_pp.jpeg" alt="Vamshidhari Das" />
+        <ProfileImage
+          src="https://iisb.co.in/wp-content/uploads/2022/08/vamshidharidas_pp.jpeg"
+          alt="Vamshidhari Das"
+        />
         <AboutText>
           <h2>About Me</h2>
-          <p>
+          {/* <p>
             Hi, I'm <span className="highlight">Vamshidhari Das</span>, a passionate and results-driven <span className="highlight">Full Stack Developer</span> with expertise in building scalable and efficient web applications. I have hands-on experience in both frontend and backend technologies, including <span className="highlight">React, Angular, Flask, and Node.js</span>.
           </p>
           <p>
@@ -87,6 +89,43 @@ const About = () => {
           </p>
           <p>
             I'm passionate about solving real-world problems through technology and continuously strive to learn and grow in this ever-evolving field. When I'm not coding, you can find me exploring new tech trends, contributing to open-source projects, or working on personal projects to enhance my skills.
+          </p> */}
+          <p>
+            Hare Krishna! With a heart full of gratitude and humility, I offer
+            my obeisances to my spiritual master, His Divine Grace A.C.
+            Bhaktivedanta Swami Prabhupada, and to the lotus feet of Lord Sri
+            Krishna. My life is dedicated to the service of the Supreme Lord,
+            Sri Krishna, and to spreading His divine message of love and
+            devotion as taught in the sacred scriptures like the Bhagavad Gita
+            and Srimad Bhagavatam. 
+            
+          </p>
+          <p>
+            I have surrendered myself to the holy names
+            of the Lord, chanting the Maha Mantra—*Hare Krishna, Hare Krishna,
+            Krishna Krishna, Hare Hare / Hare Rama, Hare Rama, Rama Rama, Hare
+            Hare*—with the hope of awakening my eternal relationship with Him.
+            Through the mercy of my spiritual master and the devotees, I strive
+            to live a life of purity, devotion, and service, following the path
+            of bhakti-yoga. 
+          </p>
+            
+          <p>
+            Whether it is through chanting, preaching,
+            distributing prasadam, or engaging in various forms of seva, I find
+            my greatest joy in serving the mission of Lord Chaitanya Mahaprabhu
+            and Srila Prabhupada.
+          </p>
+            
+          <p>
+            My goal is to inspire others to take up the
+            path of Krishna consciousness and experience the boundless love and
+            bliss that comes from connecting with the Supreme Personality of
+            Godhead. I pray for the continued guidance and blessings of Sri
+            Krishna and my spiritual master, so that I may remain steadfast in
+            my devotion and service. May my life be an instrument in spreading
+            the glories of the Lord and bringing others closer to Him. Hare
+            Krishna!
           </p>
         </AboutText>
       </AboutContent>
