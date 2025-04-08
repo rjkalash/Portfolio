@@ -26,7 +26,7 @@ const ExperienceContainer = styled.section`
 
 const Timeline = styled(motion.div)`
   position: relative;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 40px 0;
 
@@ -34,27 +34,27 @@ const Timeline = styled(motion.div)`
     content: '';
     position: absolute;
     width: 6px;
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #0077ff, #00ffcc);
     top: 0;
     bottom: 0;
-    left: 20px; // Move the timeline line to the left for mobile view
+    left: 20px;
     margin-left: -3px;
 
     @media (min-width: 768px) {
-      left: 50%; // Center the timeline line on larger screens
+      left: 50%;
     }
   }
 `;
 
 const TimelineItem = styled(motion.div)`
-  padding: 10px 40px 10px 70px; // Add left padding for mobile view
+  padding: 10px 40px 10px 70px;
   position: relative;
   background-color: inherit;
-  width: 100%; // Full width for mobile view
+  width: 100%;
   text-align: left;
 
   @media (min-width: 768px) {
-    width: 50%; // Half width for larger screens
+    width: 50%;
     padding: 10px 40px;
 
     &:nth-child(odd) {
@@ -81,12 +81,12 @@ const TimelineItem = styled(motion.div)`
     position: absolute;
     width: 25px;
     height: 25px;
-    background-color: #ffffff;
+    background: ${props => props.spiritual ? '#00ffcc' : '#0077ff'};
     border: 4px solid #121212;
     top: 15px;
     border-radius: 50%;
     z-index: 1;
-    left: 8px; // Adjust the circle position for mobile view
+    left: 8px;
 
     @media (min-width: 768px) {
       left: auto;
@@ -100,6 +100,7 @@ const ExperienceContent = styled.div`
   background-color: #1e1e1e;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-left: ${props => props.spiritual ? '4px solid #00ffcc' : '4px solid #0077ff'};
 
   h3 {
     font-size: 1.5rem;
@@ -110,7 +111,7 @@ const ExperienceContent = styled.div`
   h4 {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
-    color: #a0a0a0;
+    color: ${props => props.spiritual ? '#00ffcc' : '#a0a0a0'};
   }
 
   p {
@@ -133,41 +134,58 @@ const ExperienceContent = styled.div`
 
 const Experience = () => {
   const experiences = [
+    
+    
     {
-      company: 'Tata Consultancy Services (TCS)',
-      role: 'System Engineer',
-      duration: 'Nov 2023 – Present',
-      location: 'Gandhinagar, Gujarat',
+      type: 'spiritual',
+      role: 'Regional Secretary (Assistant) & Youth Director',
+      organization: 'ISKCON Gujarat',
+      duration: '2014 – Present',
+      location: 'Baroda, Gujarat',
       contributions: [
-        'Proficient in **Angular JS** for Front-end Development.',
-        'Collaborate cross-functionally for seamless front-end-back-end integration.',
+        'Serving under the leadership of H.G Basu Ghosh Prabhu as instructed by Guru Maharaj H.H Bhakti Charu Swami Maharaja',
+        'Director of ISKCON Youth Forum at ISKCON Baroda',
+        'Overseeing youth preaching in colleges including MSU, Parul University, GEC Dahod, GEC Surat',
       ],
     },
     {
-      company: 'Tata Consultancy Services (TCS)',
-      role: 'Intern (Remote)',
-      duration: 'Feb 2023 – April 2023',
-      location: 'Gandhinagar, Gujarat',
+      type: 'spiritual',
+      role: 'Full-time Monk',
+      organization: 'ISKCON',
+      duration: '2011 – Present',
+      location: 'Various locations',
       contributions: [
-        'Utilized **React JS, Bootstrap, and CSS** for Front-end enhancements.',
-        'Contributed remotely to front-end projects.',
+        'Joined as full-time monk in 2011 after serving as Assistant Manager at Reliance Infrastructure Ltd (2008-2011)',
+        'Previously involved in youth outreach at NIT Bhopal, IIT Gwalior, SGSITS Indore',
       ],
     },
     {
-      company: 'Startup Hq',
-      role: 'SDE Intern (Remote)',
-      duration: 'June 2022 – July 2022',
-      location: 'Andheri, Mumbai',
+      type: 'professional',
+      company: 'Reliance Infrastructure Ltd',
+      role: 'Assistant Manager',
+      duration: '2008 – 2011',
+      location: 'Mumbai, India',
       contributions: [
-        'Worked on an API-based website using **HTML, CSS, and JS** to check weather, location, and horoscope at a given place.',
-        'Improved the UI/UX of the website.',
+        'Managed key infrastructure projects during tenure',
+        'Transitioned to full-time spiritual service after completing corporate responsibilities',
+        'Gained valuable leadership and management experience',
+      ],
+    }, 
+    {
+      type: 'education',
+      degree: 'B.Tech in Electrical Engineering',
+      institution: 'NIT Bhopal',
+      duration: '2004 – 2008',
+      achievements: [
+        'Selected for campus placement in Reliance Infrastructure Ltd.',
+        'Initiated spiritual activities during college years',
       ],
     },
   ];
 
   return (
     <ExperienceContainer id="experience">
-      <h2>Experience</h2>
+      <h2>Journey</h2>
       <Timeline
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -176,19 +194,23 @@ const Experience = () => {
         {experiences.map((exp, index) => (
           <TimelineItem
             key={index}
+            spiritual={exp.type === 'spiritual'}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
-            viewport={{ once: true, amount: 0.5 }} // Trigger animation when 50% of the item is visible
+            viewport={{ once: true, amount: 0.5 }}
           >
-            <ExperienceContent>
-              <h3>{exp.company}</h3>
-              <h4>{exp.role}</h4>
+            <ExperienceContent spiritual={exp.type === 'spiritual'}>
+              <h3>{exp.company || exp.organization || exp.institution}</h3>
+              <h4>{exp.role || exp.degree}</h4>
               <p>{exp.duration}</p>
-              <p>{exp.location}</p>
+              {exp.location && <p>{exp.location}</p>}
               <ul>
-                {exp.contributions.map((contribution, i) => (
+                {exp.contributions?.map((contribution, i) => (
                   <li key={i} dangerouslySetInnerHTML={{ __html: contribution }} />
+                ))}
+                {exp.achievements?.map((achievement, i) => (
+                  <li key={i} dangerouslySetInnerHTML={{ __html: achievement }} />
                 ))}
               </ul>
             </ExperienceContent>

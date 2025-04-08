@@ -97,8 +97,8 @@ const Header = () => {
         <Link to="about" smooth={true} duration={500} onClick={toggleMenu}>
           About
         </Link>
-        <Link to="skills" smooth={true} duration={500} onClick={toggleMenu}>
-          Skills
+        <Link to="content" smooth={true} duration={500} onClick={toggleMenu}>
+          Content
         </Link>
         <Link to="projects" smooth={true} duration={500} onClick={toggleMenu}>
           Projects

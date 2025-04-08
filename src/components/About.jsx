@@ -1,4 +1,3 @@
-// src/components/About.js
 import React from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
@@ -8,7 +7,7 @@ const AboutContainer = styled.section`
   background-color: #1e1e1e;
   color: #ffffff;
   text-align: center;
-  scroll-margin-top: 80px; // Add space for the fixed header
+  scroll-margin-top: 80px;
 `;
 
 const AboutContent = styled(motion.div)`
@@ -36,8 +35,8 @@ const ProfileImage = styled.img`
 `;
 
 const AboutText = styled.div`
-  text-align: justify; // Justify the text
-  text-justify: inter-word; // Improve spacing between words
+  text-align: justify;
+  text-justify: inter-word;
 
   h2 {
     font-size: 2.5rem;
@@ -47,20 +46,70 @@ const AboutText = styled.div`
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-align: center; // Center the heading
+    text-align: center;
   }
 
   p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #a0a0a0;
-    max-width: 800px;
-    margin: 0 auto 1.5rem; // Add spacing between paragraphs
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 1.5rem;
   }
 
   .highlight {
     color: #ffffff;
-    font-weight: 300;
+    font-weight: 500;
+  }
+
+  .service-timeline {
+    margin: 2rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid #0077ff;
+  }
+
+  .service-item {
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-left: 1.5rem;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #00ffcc;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      color: #ffffff;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      color: #a0a0a0;
+    }
+
+    .duration {
+      font-style: italic;
+      color: #00ffcc;
+    }
+  }
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .service-item h3 {
+      font-size: 1.1rem;
+    }
   }
 `;
 
@@ -73,59 +122,71 @@ const About = () => {
         transition={{ duration: 1 }}
       >
         <ProfileImage
-          src="https://iisb.co.in/wp-content/uploads/2022/08/vamshidharidas_pp.jpeg"
+          src="src\assets\images\vamshidhariPrabhuji.jpg"
           alt="Vamshidhari Das"
         />
         <AboutText>
-          <h2>About Me</h2>
-          {/* <p>
-            Hi, I'm <span className="highlight">Vamshidhari Das</span>, a passionate and results-driven <span className="highlight">Full Stack Developer</span> with expertise in building scalable and efficient web applications. I have hands-on experience in both frontend and backend technologies, including <span className="highlight">React, Angular, Flask, and Node.js</span>.
+          <h2>Spiritual Journey</h2>
+          <p>
+            All glories to Srila Prabhupada. I have been serving in ISKCON since 2006, 
+            beginning my spiritual journey while pursuing my <span className="highlight">B.Tech in Electrical Engineering</span> 
+            at <span className="highlight">NIT Bhopal</span>, where I graduated in 2008.
           </p>
+
+          <div className="service-timeline">
+            <div className="service-item">
+              <h3>Early Career & Spiritual Awakening</h3>
+              <p className="duration">2006-2011</p>
+              <p>
+                While completing my engineering degree, I began spiritual outreach at 
+                <span className="highlight"> NIT Bhopal, IIT Gwalior, and SGSITS Indore</span>. 
+                After graduation, I served as <span className="highlight">Assistant Manager at Reliance Infrastructure Ltd</span> 
+                (2008-2011) before taking full-time monastic vows in 2011.
+              </p>
+            </div>
+
+            <div className="service-item">
+              <h3>Full-time Monastic Life</h3>
+              <p className="duration">2011-Present</p>
+              <p>
+                Dedicated my life to spreading Krishna consciousness under the guidance 
+                of my spiritual master, <span className="highlight">H.H Bhakti Charu Swami Maharaja</span>.
+              </p>
+            </div>
+
+            <div className="service-item">
+              <h3>ISKCON Baroda Service</h3>
+              <p className="duration">2014-Present</p>
+              <p>
+                Relocated to <span className="highlight">ISKCON Baroda</span> in 2014 to serve under 
+                <span className="highlight"> H.G Basu Ghosh Prabhu</span>. Currently serving as 
+                <span className="highlight"> Regional Secretary (Assistant) for ISKCON Gujarat</span> and 
+                <span className="highlight"> Director of ISKCON Youth Forum</span> at ISKCON Baroda.
+              </p>
+            </div>
+
+            <div className="service-item">
+              <h3>Youth Preaching Initiatives</h3>
+              <p className="duration">Ongoing</p>
+              <p>
+                Overseeing youth preaching programs at numerous educational institutions including 
+                <span className="highlight"> The Maharaja Sayajirao University, Parul University, GEC Dahod, GEC Surat</span>, 
+                and other colleges throughout Gujarat.
+              </p>
+            </div>
+          </div>
+
           <p>
-            Currently, I work as a <span className="highlight">System Engineer</span> at <span className="highlight">Tata Consultancy Services (TCS)</span>, where I specialize in <span className="highlight">Angular JS</span> for frontend development and collaborate cross-functionally to ensure seamless integration between frontend and backend systems.
+            My life's mission is to share the nectar of Krishna consciousness with 
+            students and youth, following in the footsteps of Srila Prabhupada. 
+            Through devotional service, kirtan, and philosophical discussions, 
+            I strive to awaken the spiritual potential in every heart.
           </p>
+          
           <p>
-            I have a strong foundation in <span className="highlight">Machine Learning</span> and have worked on projects like <span className="highlight">Image Recognizer</span> and <span className="highlight">House Price Prediction</span>, leveraging tools like <span className="highlight">OpenCV, Pandas, Scikit Learn, and Flask</span>. I'm also proficient in <span className="highlight">Python, JavaScript, HTML, CSS</span>, and cloud platforms like <span className="highlight">Heroku</span>.
-          </p>
-          <p>
-            I'm passionate about solving real-world problems through technology and continuously strive to learn and grow in this ever-evolving field. When I'm not coding, you can find me exploring new tech trends, contributing to open-source projects, or working on personal projects to enhance my skills.
-          </p> */}
-          <p>
-            Hare Krishna! With a heart full of gratitude and humility, I offer
-            my obeisances to my spiritual master, His Divine Grace A.C.
-            Bhaktivedanta Swami Prabhupada, and to the lotus feet of Lord Sri
-            Krishna. My life is dedicated to the service of the Supreme Lord,
-            Sri Krishna, and to spreading His divine message of love and
-            devotion as taught in the sacred scriptures like the Bhagavad Gita
-            and Srimad Bhagavatam. 
-            
-          </p>
-          <p>
-            I have surrendered myself to the holy names
-            of the Lord, chanting the Maha Mantra—*Hare Krishna, Hare Krishna,
-            Krishna Krishna, Hare Hare / Hare Rama, Hare Rama, Rama Rama, Hare
-            Hare*—with the hope of awakening my eternal relationship with Him.
-            Through the mercy of my spiritual master and the devotees, I strive
-            to live a life of purity, devotion, and service, following the path
-            of bhakti-yoga. 
-          </p>
-            
-          <p>
-            Whether it is through chanting, preaching,
-            distributing prasadam, or engaging in various forms of seva, I find
-            my greatest joy in serving the mission of Lord Chaitanya Mahaprabhu
-            and Srila Prabhupada.
-          </p>
-            
-          <p>
-            My goal is to inspire others to take up the
-            path of Krishna consciousness and experience the boundless love and
-            bliss that comes from connecting with the Supreme Personality of
-            Godhead. I pray for the continued guidance and blessings of Sri
-            Krishna and my spiritual master, so that I may remain steadfast in
-            my devotion and service. May my life be an instrument in spreading
-            the glories of the Lord and bringing others closer to Him. Hare
-            Krishna!
+            All my accomplishments are by the mercy of my spiritual masters and 
+            the holy names of Lord Krishna. I pray to always remain a humble 
+            servant of the servants of the Lord.
           </p>
         </AboutText>
       </AboutContent>

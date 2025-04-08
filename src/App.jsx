@@ -10,6 +10,7 @@ import Experience from './components/Experience';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import Education from './components/Education';
+import Content from './components/Content';
 
 
 function App() {
@@ -19,10 +20,11 @@ function App() {
       <Header />
       <Hero />
       <About />
-      <Skills />
-      <Projects />
+      <Content />
+      {/* <Skills /> */}
+      {/* <Projects /> */}
       <Experience />
-      <Education />
+      {/* <Education /> */}
       <Contact />
       <Footer />
     </>
