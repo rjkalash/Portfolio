@@ -4,64 +4,181 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const AboutContainer = styled.section`
-  padding: 4rem 2rem;
-  background-color: #1e1e1e;
+  padding: 6rem 2rem;
+  background: transparent;
   color: #ffffff;
   text-align: center;
-  scroll-margin-top: 80px; // Add space for the fixed header
+  scroll-margin-top: 80px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(0, 255, 204, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(0, 119, 255, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 3rem;
+    background: linear-gradient(45deg, #00ffcc, #0077ff, #ff6b6b);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+    animation: gradientShift 3s ease-in-out infinite;
+    position: relative;
+    z-index: 2;
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    @media (max-width: 768px) {
+      letter-spacing: 2px;
+    }
+  }
 `;
 
 const AboutContent = styled(motion.div)`
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 3rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 4rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.5), transparent);
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem;
+    margin: 0 1rem;
+    gap: 2rem;
+  }
 `;
 
-const ProfileImage = styled.img`
+const ProfileImage = styled(motion.img)`
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
-  border: 4px solid #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid rgba(0, 255, 204, 0.3);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(0, 255, 204, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00ffcc, #0077ff, #ff6b6b);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
 
   &:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transform: scale(1.08);
+    border-color: rgba(0, 255, 204, 0.6);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.4),
+      0 0 30px rgba(0, 255, 204, 0.4);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 150px;
   }
 `;
 
-const AboutText = styled.div`
-  text-align: justify; // Justify the text
-  text-justify: inter-word; // Improve spacing between words
-
-  h2 {
-   
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    background: linear-gradient(45deg, #00ffcc, #0077ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center; // Center the heading
-  }
+const AboutText = styled(motion.div)`
+  text-align: justify;
+  text-justify: inter-word;
+  width: 100%;
 
   p {
-    font-size: 1.2rem;
-    line-height: 1.6;
-    color: #a0a0a0;
-    max-width: 800px;
-    margin: 0 auto 1.5rem; // Add spacing between paragraphs
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.8;
+    color: #b0b0b0;
+    max-width: 100%;
+    margin: 0 0 2rem;
+    position: relative;
+    z-index: 2;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   .highlight {
     color: #ffffff;
-    font-weight: 300;
+    font-weight: 500;
+    background: linear-gradient(45deg, #00ffcc, #0077ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.5), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    &:hover::after {
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    text-align: left;
+    
+    p {
+      line-height: 1.6;
+    }
   }
 `;
 
@@ -77,16 +194,39 @@ const About = () => {
         <AboutText>
           <h2>About Me</h2>
           <p>
-            Hi, I'm <span className="highlight">Raj Kalash Tiwari</span>, a passionate and results-driven <span className="highlight">Full Stack Developer</span> with expertise in building scalable and efficient web applications. I have hands-on experience in both frontend and backend technologies, including <span className="highlight">React, Angular, Flask, and Node.js</span>.
+            Hi, I'm <span className="highlight">Raj Kalash Tiwari</span>, a passionate <span className="highlight">Full Stack Developer</span> with expertise in building scalable web applications.
           </p>
+          
           <p>
-            Currently, I work as a <span className="highlight">System Engineer</span> at <span className="highlight">Tata Consultancy Services (TCS)</span>, where I specialize in <span className="highlight">Angular JS</span> for frontend development and collaborate cross-functionally to ensure seamless integration between frontend and backend systems.
+            I specialize in creating <strong>responsive user interfaces</strong> and <strong>robust backend systems</strong> that deliver exceptional user experiences. My goal is to combine technical excellence with creative problem-solving.
           </p>
+          
+          <div className="key-points">
+            <h3>🚀 Current Role</h3>
+            <p>
+              <strong>System Engineer</strong> at <span className="highlight">Tata Consultancy Services (TCS)</span>, specializing in <span className="highlight">Angular JS</span> frontend development and cross-functional collaboration.
+            </p>
+          </div>
+
+          <div className="key-points">
+            <h3>💻 Technical Expertise</h3>
+            <p>
+              • <strong>Frontend:</strong> <span className="highlight">React, Angular, HTML5, CSS3, JavaScript</span><br/>
+              • <strong>Backend:</strong> <span className="highlight">Node.js, Flask, Python</span><br/>
+              • <strong>Machine Learning:</strong> <span className="highlight">OpenCV, Pandas, Scikit Learn</span><br/>
+              • <strong>Cloud:</strong> <span className="highlight">Heroku, AWS</span>
+            </p>
+          </div>
+
+          <div className="key-points">
+            <h3>🎯 Notable Projects</h3>
+            <p>
+              Built innovative solutions including <span className="highlight">Image Recognition Systems</span> and <span className="highlight">House Price Prediction Models</span> using cutting-edge ML technologies.
+            </p>
+          </div>
+
           <p>
-            I have a strong foundation in <span className="highlight">Machine Learning</span> and have worked on projects like <span className="highlight">Image Recognizer</span> and <span className="highlight">House Price Prediction</span>, leveraging tools like <span className="highlight">OpenCV, Pandas, Scikit Learn, and Flask</span>. I'm also proficient in <span className="highlight">Python, JavaScript, HTML, CSS</span>, and cloud platforms like <span className="highlight">Heroku</span>.
-          </p>
-          <p>
-            I'm passionate about solving real-world problems through technology and continuously strive to learn and grow in this ever-evolving field. When I'm not coding, you can find me exploring new tech trends, contributing to open-source projects, or working on personal projects to enhance my skills.
+            <strong>Passionate about solving real-world problems through technology</strong> and continuously learning in this ever-evolving field. Always exploring new tech trends and contributing to open-source projects.
           </p>
         </AboutText>
       </AboutContent>
